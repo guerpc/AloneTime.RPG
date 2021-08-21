@@ -1,18 +1,19 @@
 #include "Inventory.h"
 
 
-vector<Actor> Inventory::getInventoryList()
+vector<Actor*> Inventory::getInventoryList()
 {
 	return inventoryList;
 }
-void Inventory::setInventoryList(vector<Actor> sInventory)
+void Inventory::setInventoryList(vector<Actor*> sInventory)
 {
 	inventoryList = sInventory;
 }
 
-/*#################NOT WORKING HERE!!!####################
+//#################NOT WORKING HERE!!!####################
 //adding stats from all actors in a list and setting it to 1 temp actor
-vector<Actor> Inventory::addStatsFromListItems()
+/*
+void Inventory::addStatsFromListItems(Actor &newAct)
 {
 	Actor tempActor;
 	Stats* tempStats = new Stats;
@@ -20,7 +21,7 @@ vector<Actor> Inventory::addStatsFromListItems()
 
 	for (int i = 0; i < inventoryList.size(); i++)
 	{
-		tempStats = inventoryList.at(i).getStats();
+		tempStats = inventoryList.at(i)->getStats();
 	
 		addStats = *tempStats;
 		//overload operator used + stats.cpp line 49 Stats operator+(stats)
@@ -28,6 +29,7 @@ vector<Actor> Inventory::addStatsFromListItems()
 		tempStats = &sumStats;
 	}
 	tempActor.setAllStats(tempStats->getStrength(), tempStats->getStamina(), tempStats->getAgility());
-
-	return inventoryList;
+	//tempActor.setID(0);
+	//tempActor.setDescription("New Item");
+	newAct = tempActor;
 }*/

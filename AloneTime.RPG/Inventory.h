@@ -5,12 +5,12 @@ class Inventory
 {
 
 private:
-	vector<Actor>inventoryList;
+	vector<Actor*>inventoryList;
 public:
-	vector<Actor> getInventoryList();
-	void setInventoryList(vector<Actor> sInventory);
-	vector<Actor> addStatsFromListItems();//#################NOT WORKING HERE!!!####################
-
+	vector<Actor*> getInventoryList();
+	void setInventoryList(vector<Actor*> sInventory);
+	//#################NOT WORKING HERE!!!####################
+	void addStatsFromListItems(Actor &newAct);
 
 };
 

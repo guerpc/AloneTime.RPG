@@ -1,5 +1,4 @@
 #pragma once
-
 #include <iostream>
 #include "Actor.h"
 #include "Stats.h"
@@ -42,6 +41,12 @@ int main()
 	cout << endl;
 
     combat(actorsList);
+//	Inventory newInventory;
+//	newInventory.setInventoryList(actorsList);
+//	Actor newStats = Actor();
+	//newInventory.addStatsFromListItems(newStats);
+
+	//newStats.toString();
 
 	delete a1;
 	delete a2;
