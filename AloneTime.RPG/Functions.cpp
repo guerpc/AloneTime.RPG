@@ -42,13 +42,21 @@ void attack(Actor* attacker, Actor* defender)
 {
 	auto tempActor1 = attacker;
 	auto tempActor2 = defender;
+	float lifeDamage;
 	auto tempDefenderStats = defender->getStats();
 	float a1Damage = tempActor1->getStats()->getStrength();
 	float a2Defense = tempActor2->getStats()->getAgility();
 
-	float lifeDamage = a1Damage - a2Defense;
-
-	float resultingStam = tempActor2->getStats()->getStamina() - a2Defense;
+	if (a1Damage <= a2Defense)
+	{
+		lifeDamage = 0;
+	}
+	else
+	{
+		lifeDamage = a1Damage - a2Defense;
+	}
+	
+	float resultingStam = tempActor2->getStats()->getStamina() - lifeDamage;
 	tempDefenderStats->setStamina(resultingStam);
 
 	defender = tempActor2;
@@ -93,6 +101,8 @@ void combat(vector<Actor*>& combatActors)
 	}
 	while (stats1->isAlive() && stats2->isAlive())
 	{
+		//Actor* swap1;
+		//Actor* swap2;
 		attack(attk, def);
 
 		writeLine("After Atack\n");
@@ -101,6 +111,24 @@ void combat(vector<Actor*>& combatActors)
 		writeLine("Attacker's Health: ");
 		writeLine(attk->toString());
 
+		/*if (stats1->isAlive() && stats2->isAlive())
+		{
+			attack(def, attk);
+
+			writeLine("Deffender's Atack\n");
+			writeLine("Defender's Health: ");
+			writeLine(def->toString());
+			writeLine("Attacker's Health: ");
+			writeLine(attk->toString());
+		}
+		*/
 		swap(attk, def);
+		/*if (stats1->isAlive() && stats2->isAlive())
+		{
+		swap1 = attk;
+		swap2 = def;
+		def = swap1;
+		attk = swap2;
+		}*/
 	}
 }

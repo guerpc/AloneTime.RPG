@@ -30,11 +30,18 @@ int main()
 	cout << a1->toString();
 	cout << "actor 2" << endl;
 	cout << a2->toString();
+	cout << endl;
+
+	cout << "Actor 1 Stats: " << endl;
 	inputActorStats(a1);
+	cout << "Actor 2 Stats: " << endl;
 	inputActorStats(a2);
 	actorsList.push_back(a1);
+	cout << endl;
 	actorsList.push_back(a2);
-	combat(actorsList);
+	cout << endl;
+
+    combat(actorsList);
 
 	delete a1;
 	delete a2;
